@@ -4,4 +4,6 @@ root 'welcome#index'
 
 resources :reports, path: '/report'
 
+
+
 end
