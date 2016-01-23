@@ -1,0 +1,14 @@
+<%= simple_form_for(@report) do |f| %>
+  <%= f.error_notification %>
+
+  <div>
+  <fieldset>
+    <%= f.input :title, autofocus: true %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+   <%= f.button :submit, :class => 'btn btn-success btn-md' %>
+   <%= link_to 'Cancel', reports_path, :class => 'btn btn-danger btn-md' %>
+  </div>
+<% end %>
