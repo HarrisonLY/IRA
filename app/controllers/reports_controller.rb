@@ -1,14 +1,16 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin
- # before_action :require_admin, except: [:index, :show]
+before_action :set_report, only: [:show, :edit, :update, :destroy]
+before_action :require_signin
+#before_action :require_admin, except: [:index, :show]
+
+#belongs_to :users
 
   def index
     @reports = Report.all
   end
 
   def show
-   @report = Report.find_by!(slug: params[:id])
+   @report = Report.find_by!(params[:id])
   end
 
  # def admin
@@ -24,7 +26,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-
+    
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -59,11 +61,11 @@ class ReportsController < ApplicationController
   private
 
     def set_report
-      @report = Report.find_by!(slug: params[:id])
+      @report = Report.find_by!(params[:id])
     end
 
     def report_params
-      params.require(:report).permit(:title, :created_at, :updated_at, :slug)
+      params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
     end
 
 end

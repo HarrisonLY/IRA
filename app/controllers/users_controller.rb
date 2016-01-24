@@ -3,6 +3,8 @@ before_action :require_correct_user, only: [:show, :edit, :update]
 before_action :require_signin, except: [:new, :create]
 before_action :require_admin, only: [:destroy, :index]
 
+#has_many :reports, dependent: :destroy
+
 def index
   @users = User.all
 end

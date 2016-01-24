@@ -3,7 +3,6 @@ class CreateReports < ActiveRecord::Migration
     create_table :reports do |t|
       t.string :title
       t.string :slug
-      
 
       t.timestamps null: false
     end
