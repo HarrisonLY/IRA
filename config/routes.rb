@@ -8,7 +8,7 @@ resources :reports
  get "contact" => 'welcome#contact'
  get "plans" => 'welcome#plans'
  get "admin" => 'welcome#admin'
- 
+
  resources :users, :except => [:new]
  get 'signup' => 'users#new'
 
