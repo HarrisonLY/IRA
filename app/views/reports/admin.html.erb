@@ -1,0 +1,33 @@
+<% content_for :title, "Report Admin" %>
+
+<!-- Header Image & Text -->
+
+<div class="header_image">
+    <div class="header_container">
+        <p class="header_text"> <%= pluralize(@reports.size, 'Reports') %> </p> 
+    </div>
+</div>
+
+<!-- Report Table -->
+
+<div class="...">
+
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Report ID</th>
+            <th>Report Title</th>
+            <th>Delete Report</th>
+        </tr>
+    </thead>
+    <tbody>
+  <% @reports.each do |report| %>
+        <tr>
+            <td> <%= link_to report.id, report %> </td>
+            <td> <%= link_to report.title, report %> </td>
+            <td data-confirm="Are you sure?"><%= link_to 'Delete', report, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

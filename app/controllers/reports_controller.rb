@@ -1,71 +1,61 @@
 class ReportsController < ApplicationController
-before_action :set_report, only: [:show, :edit, :update, :destroy]
+before_action :set_user
 before_action :require_signin
-#before_action :require_admin, except: [:index, :show]
-
-#belongs_to :users
+before_action :require_admin, only: [:admin]
 
   def index
-    @reports = Report.all
+    @reports = @current_user.reports
   end
 
   def show
-   @report = Report.find_by!(params[:id])
+   @report = Report.find(params[:id])
   end
 
- # def admin
- #  @reports = Report.order("created_at desc").page(params[:page]).per_page(5)
- # end
-
   def new
-    @report = Report.new
+    @report = @current_user.reports.new
   end
 
   def edit
+    @report = Report.find(params[:id])
   end
 
   def create
-    @report = Report.new(report_params)
-    
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
-      else
-        format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @report }
-      else
-        format.html { render :edit }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
+    @report = @current_user.reports.new(report_params)
+    if @report.save
+      redirect_to reports_path,
+        notice: "Thanks for your report!"
+    else
+      render :new
     end
   end
 
   def destroy
+    @report = @current_user.reports.find(params[:id])
     @report.destroy
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Report was successfully destroyed.' }
-      format.json { head :no_content }
+    redirect_to reports_path, notice: "report successfully deleted!"
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    if @report.update(report_params)
+      redirect_to @report, notice: "Report successfully updated!"
+    else
+      render :edit
     end
   end
 
-  private
+  def admin
+    @reports = Report.all
+  end
 
-    def set_report
-      @report = Report.find_by!(params[:id])
-    end
+private
 
-    def report_params
-      params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
-    end
+  def report_params
+    params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
+  end
+
+  def set_user
+    @current_user
+  end
 
 end

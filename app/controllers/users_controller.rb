@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :require_correct_user, only: [:show, :edit, :update]
 before_action :require_signin, except: [:new, :create]
-before_action :require_admin, only: [:destroy, :index]
+before_action :require_admin, only: [:destroy, :index, :admin]
 
 #has_many :reports, dependent: :destroy
 
@@ -47,13 +47,17 @@ def create
   end 
 end
 
-
-
 def destroy
   @user = User.find(params[:id])
   @user.destroy
   redirect_to admin_path, notice: "Account successfully deleted!"
 end
+
+
+  def admin
+    @users = User.all
+  end
+
 
 private
 
