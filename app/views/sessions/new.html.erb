@@ -1,0 +1,31 @@
+<% content_for :title, "Sign In" %>
+
+<!-- Header Image & Text -->
+
+<div class="header_image"> 
+  <div class="header_container">
+    <h1 class="header_text"> Sign In </h1> 
+  </div>
+</div>
+
+<!-- Sign In Form -->
+
+<div class="leantable">
+  <%= form_tag(session_path) do %>
+    <fieldset>
+      <ol>
+        <li class="required">
+          <%= label_tag :email %>
+          <%= email_field_tag :email, nil, autofocus: true, size: 40 %>
+        </li>
+        <li class="required">
+          <%= label_tag :password %>
+          <%= password_field_tag :password, nil, size: 40 %>
+        </li>
+      </ol>
+      <p>
+        <%= submit_tag 'Sign In' %>
+      </p>
+    </fieldset>
+  <% end %>
+</div>

@@ -4169,7 +4169,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -6757,4 +6756,42 @@ button.close {
     display: none !important;
   }
 }
+
+
+.header_image {
+    height: 150px; 
+    background-color: lightgrey;
+}
+
+.header_container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 40px; 
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+
+.header_text {
+    text-align: center; 
+    font-size: 30px; 
+    font-weight: bold; 
+    color: white;
+}
+
+.header_subtext {
+  text-align: center; 
+  font-size: 15px; 
+  font-weight: bold; 
+  color: white;
+  margin-top: -10px
+}
+
+
+
+
+
+
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+
