@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 	has_secure_password
-	has_many :reports, dependent: :destroy
 	
+	has_many :reports, dependent: :destroy
+	belongs_to :organizations
+
 	validates :email, presence: true, 
 	format: /\A\S+@\S+\z/, 
 	uniqueness: { case_sensitive: false }

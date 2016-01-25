@@ -50,12 +50,12 @@ before_action :require_admin, only: [:admin]
 
 private
 
-  def report_params
-    params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
-  end
-
   def set_user
     @current_user
+  end
+
+  def report_params
+    params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
   end
 
 end
