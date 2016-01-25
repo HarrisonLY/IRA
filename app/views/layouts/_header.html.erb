@@ -8,18 +8,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-<% if current_user %>      
-      <%= link_to reports_path do  %> 
-      <i class="navbar-brand glyphicon glyphicon-folder-open"> Reports</i> 
-      <% end %>
-<% else %> 
       <a class="navbar-brand" href="/">Incident Report App</a>
-<% end %>
-
     </div>
 
 <% if current_user %>
+
+      <ul class="nav navbar-nav navbar-left">
+        <li> 
+          <% if current_user %>      
+              <%= link_to reports_path do  %> 
+                <i class="glyphicon glyphicon-folder-open"> Reports</i> 
+              <% end %>
+            <% else %> 
+             <a href="/">Incident Report App</a>
+          <% end %>
+        </li>
+      </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li> <a href="/reports/new"> <i class="glyphicon glyphicon-plus"> </i> </a> </li>

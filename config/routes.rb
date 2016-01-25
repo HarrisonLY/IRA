@@ -7,14 +7,12 @@ root 'welcome#index'
  get "plans" => 'welcome#plans'
  get "admin" => 'welcome#admin'
 
-resources :users, :reports
+resources :organizations, :users, :reports
  get 'signup' => 'users#new'
  get "report/admin" => 'reports#admin'
  get "user/admin" => 'users#admin'
 
 resource :session
  get "signin" => "sessions#new"
-
-resources :organizations
 
 end

@@ -13,7 +13,7 @@ def create
   if user = User.authenticate(params[:email], params[:password])
     session[:user_id] = user.id
     flash[:notice] = "Welcome back, #{user.name}!"
-    redirect_to user
+    redirect_to reports_path
   else
     flash.now[:alert] = "Invalid email/password combination!"
     render :new

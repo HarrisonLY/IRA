@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-	has_secure_password
-	
 	has_many :reports, dependent: :destroy
 	belongs_to :organizations
+
+	has_secure_password
 
 	validates :email, presence: true, 
 	format: /\A\S+@\S+\z/, 
