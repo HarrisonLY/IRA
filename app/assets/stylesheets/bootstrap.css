@@ -4281,7 +4281,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     text-align: center;
     margin: auto;
     padding: 15px 15px;
-    font-size: 18px;
     line-height: 20px;
     height: 50px;
 }
@@ -6761,13 +6760,10 @@ button.close {
     display: none !important;
   }
 }
-
-
 .header_image {
     height: 150px; 
-    background-color: lightgrey;
+    background-color: grey;
 }
-
 .header_container {
   margin-right: auto;
   margin-left: auto;
@@ -6775,14 +6771,12 @@ button.close {
   padding-left: 20px; 
   padding-right: 20px;
 }
-
 .header_text {
-    text-align: center; 
-    font-size: 30px; 
-    font-weight: bold; 
-    color: white;
+  text-align: center; 
+  font-size: 30px; 
+  font-weight: bold; 
+  color: white;
 }
-
 .header_subtext {
   text-align: center; 
   font-size: 15px; 
@@ -6790,10 +6784,27 @@ button.close {
   color: white;
   margin-top: -10px
 }
+.report_title {
+  margin: 20px;
+  font-size: 20px; 
+}
 
+.report_create_date {
+  margin: 20px;
+  font-size: 20px; 
+}
 
-
-
+.report_header {
+  margin: 20px;
+  font-size: 30px; 
+  font-weight: bold; 
+}
+.report_form {
+  margin: 10px 0px 20px 30px;
+}
+.form_margin {
+  margin: 10px 0px 20px 30px;
+}
 
 
 /*# sourceMappingURL=bootstrap.css.map */

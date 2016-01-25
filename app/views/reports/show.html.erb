@@ -2,4 +2,24 @@
 
 <!-- Report -->
 
-<%= @report.title %>
+<div class="report_title">
+	<%= @report.title %>
+</div>
+
+<div class="report_create_date">
+	<%= @report.created_at.strftime('%D') %>
+</div>
+
+
+<!-- TEMPORARY LINKS -->
+
+<br>
+<br>
+
+<div class="report_title">
+<%= link_to 'Edit', edit_report_path(@report) %>
+<br>
+<%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<!-- TEMPORARY LINKS END -->

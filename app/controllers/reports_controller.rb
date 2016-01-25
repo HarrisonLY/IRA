@@ -22,7 +22,7 @@ before_action :require_admin, only: [:admin]
   def create
     @report = @current_user.reports.new(report_params)
     if @report.save
-      redirect_to reports_path,
+      redirect_to @report,
         notice: "Thanks for your report!"
     else
       render :new
