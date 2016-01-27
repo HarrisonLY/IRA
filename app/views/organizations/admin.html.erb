@@ -16,8 +16,9 @@
     <thead>
         <tr>
             <th>Organizations ID</th>
-            <th>Organizations Title</th>
-            <th>Delete Organizations</th>
+            <th>Organizations Name</th>
+            
+            <th>Delete Organization</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <tr>
             <td> <%= link_to organization.id, organization %> </td>
             <td> <%= link_to organization.name, organization %> </td>
+
             <td data-confirm="Are you sure?"><%= link_to 'Delete', organization, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %></td>
         </tr>
     <% end %>

@@ -51,7 +51,7 @@ class OrganizationsController < ApplicationController
 
 
   def admin
-    @organization = Organization.all
+    @organizations = Organization.all
   end
 
 
