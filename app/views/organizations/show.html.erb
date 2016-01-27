@@ -6,6 +6,10 @@
 	<%= @organization.name %>
 </div>
 
+<div class="report_title">
+	# of Users: <%= @organization.users.count %>
+</div>
+
 <div class="report_create_date">
 	Creation Date: <%= @organization.created_at.strftime('%D') %>
 </div>
