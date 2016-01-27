@@ -13,21 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20160127032557) do
 
-  create_table "organizations", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "organizations_users", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.integer  "organization_id"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  add_index "organizations_users", ["organization_id"], name: "index_organizations_users_on_organization_id"
-  add_index "organizations_users", ["user_id"], name: "index_organizations_users_on_user_id"
+  add_index "members", ["organization_id"], name: "index_members_on_organization_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
