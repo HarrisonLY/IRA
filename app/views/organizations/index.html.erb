@@ -1,0 +1,9 @@
+<% content_for :title, "My Organizations" %>
+
+<!-- Header Content -->
+
+<% @organizations.each do |organization| %>
+<div class="report_title"> 
+  <%= link_to organization.name, organization %>
+</div>
+<% end %>

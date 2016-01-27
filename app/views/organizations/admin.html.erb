@@ -1,0 +1,33 @@
+<% content_for :title, "Organization Admin" %>
+
+<!-- Header Image & Text -->
+
+<div class="header_image">
+    <div class="header_container">
+        <p class="header_text"> <%= pluralize(@organizations.size, 'Organizations') %> </p> 
+    </div>
+</div>
+
+<!-- Organizations Table -->
+
+<div class="...">
+
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Organizations ID</th>
+            <th>Organizations Title</th>
+            <th>Delete Organizations</th>
+        </tr>
+    </thead>
+    <tbody>
+  <% @organizations.each do |organization| %>
+        <tr>
+            <td> <%= link_to organization.id, organization %> </td>
+            <td> <%= link_to organization.name, organization %> </td>
+            <td data-confirm="Are you sure?"><%= link_to 'Delete', organization, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,25 @@
+<% content_for :title, @organization.name %>
+
+<!-- Organization -->
+
+<div class="report_title">
+	<%= @organization.name %>
+</div>
+
+<div class="report_create_date">
+	Creation Date: <%= @organization.created_at.strftime('%D') %>
+</div>
+
+
+<!-- TEMPORARY LINKS -->
+
+<br>
+<br>
+
+<div class="report_title">
+<%= link_to 'Edit', edit_organization_path(@organization) %>
+<br>
+<%= link_to 'Destroy', @organization, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<!-- TEMPORARY LINKS END -->

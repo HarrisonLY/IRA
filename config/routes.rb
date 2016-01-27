@@ -9,9 +9,10 @@ root 'welcome#index'
 
 resources :organizations, :users, :reports
  get 'signup' => 'users#new'
- get "report/admin" => 'reports#admin'
+ get "organization/admin" => 'organizations#admin'
  get "user/admin" => 'users#admin'
-
+ get "report/admin" => 'reports#admin'
+ 
 resource :session
  get "signin" => "sessions#new"
 
