@@ -1,12 +1,10 @@
 class AddOrganizationsUsers < ActiveRecord::Migration
-  def self.up
-    create_table :organizations_users, :id => false do |t|
-      t.integer :organization_id
-      t.integer :user_id
+  def change
+	create_table :organizations_users do |t|
+      t.belongs_to :organization, index: true
+      t.belongs_to :user, index: true
+      
+      t.timestamps null: false
     end
-  end
-
-  def self.down
-    drop_table :organizations_users
   end
 end

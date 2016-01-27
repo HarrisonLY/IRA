@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :reports, as: :reportable, dependent: :destroy
-	has_and_belongs_to_many :organization
+	has_many :organizations_users
+  	has_many :organizations, through: :organizations_users
 
 	has_secure_password
 
