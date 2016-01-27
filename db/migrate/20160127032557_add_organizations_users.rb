@@ -1,6 +1,6 @@
 class AddOrganizationsUsers < ActiveRecord::Migration
   def change
-	create_table :members do |t|
+	create_table :memberships do |t|
       t.belongs_to :organization, index: true
       t.belongs_to :user, index: true
 
