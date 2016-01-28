@@ -17,7 +17,8 @@
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Number Of Reports</th>
+            <th>Organizations</th>
+            <th>Reports</th>
             <th>Admin?</th>
             <th>Delete 'Em</th>
         </tr>
@@ -28,6 +29,7 @@
             <td> <%= link_to user.id, user %> </td>
             <td> <%= link_to user.name, user %> </td>
             <td> <%= user.email %> </td>
+            <td> <%= user.organizations.count %> </td>
             <td> <%= user.reports.count %> </td>
             <td> <%= user.admin? %> </td>
             <td data-confirm="Are you sure?"><%= link_to 'Delete', user, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %></td>

@@ -55,6 +55,7 @@ before_action :require_admin, only: [:destroy, :index, :admin]
 
   def admin
     @users = User.all
+    @organization = @current_user.organizations
   end
 
 

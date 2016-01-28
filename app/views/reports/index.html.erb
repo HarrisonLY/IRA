@@ -14,7 +14,6 @@
 
 <% @organization.each do |organization| %>
 <div class="report_title"> 
-  <%= link_to organization.name, organization %>
-  <%= organization.reports %>
+  <%= link_to organization.name, organization %> (<%= organization.reports.size %>)
 </div>
 <% end %>

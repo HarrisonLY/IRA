@@ -6,13 +6,25 @@
 	Name: <%= @organization.name %>
 </div>
 
-<div class="report_title">
-	Members: <%= @memberships %>
+<div class="report_title"> Members: </div>
+
+<% @members.each do |user| %>
+<div class="report_title"> 
+  <%= link_to user.name, user %>
 </div>
+<% end %>
 
 <div class="report_create_date">
 	Creation Date: <%= @organization.created_at.strftime('%D') %>
 </div>
+
+<div class="report_title"> Reports: </div>
+
+<% @report.each do |report| %>
+<div class="report_title"> 
+  <%= link_to report.title, report %>
+</div>
+<% end %>
 
 
 <!-- TEMPORARY LINKS -->
