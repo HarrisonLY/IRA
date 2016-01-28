@@ -5,4 +5,9 @@ class Organization < ActiveRecord::Base
 
 
 
+	def members
+		
+	end
+
+
 end

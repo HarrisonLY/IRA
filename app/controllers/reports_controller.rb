@@ -4,7 +4,9 @@ before_action :require_signin
 before_action :require_admin, only: [:admin]
 
   def index
-    @reports = @current_user.reports
+    @personal_reports = @current_user.reports
+    @organization = @current_user.organizations
+#    @organization_reports = @organization.reports
   end
 
   def show
@@ -55,7 +57,16 @@ private
   end
 
   def report_params
-    params.require(:report).permit(:title, :created_at, :updated_at, :user_id)
+    params.require(:report).permit(:title, :reportable_type, :reportable_id, :created_at, :updated_at)
   end
+
+  def organization_params
+    params.require(:organization).permit(:name, :user_ids)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :organization_ids)
+  end
+
 
 end

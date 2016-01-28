@@ -2,8 +2,19 @@
 
 <!-- Header Content -->
 
-<% @reports.each do |report| %>
+<div class="report_title"> My Personal Reports </div>
+
+<% @personal_reports.each do |report| %>
 <div class="report_title"> 
   <%= link_to report.title, report %>
+</div>
+<% end %>
+
+<div class="report_title"> My Organizations </div>
+
+<% @organization.each do |organization| %>
+<div class="report_title"> 
+  <%= link_to organization.name, organization %>
+  <%= organization.reports %>
 </div>
 <% end %>

@@ -1,7 +1,8 @@
 class OrganizationsController < ApplicationController
-#before_action :require_correct_user, only: [:show, :edit, :update]
-#before_action :require_signin, except: [:new, :create]
-#before_action :require_admin, only: [:destroy, :index, :admin]
+before_action :set_organization, only: [:show, :edit, :update, :destroy]
+#before_action :require_correct_user, only: [:index, :show, :edit, :update]
+before_action :require_signin
+before_action :require_admin, only: [:destroy, :admin]
 
   def index
     @organizations = Organization.all
@@ -9,7 +10,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
-    @organization.users = @organization.users
+    @memberships = @organization.memberships
   end
 
   def edit
@@ -53,15 +54,29 @@ class OrganizationsController < ApplicationController
 
 private
 
-  def organization_params
-    params.require(:organization).permit(:name)
+  def set_organization
+    @organization = Organization.find(params[:id])
   end
 
+  def organization_params
+    params.require(:organization).permit(:name, :user_ids, :created_at, :updated_at)
+  end
+
+  def report_params
+    params.require(:report).permit(:title)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :organization_ids)
+  end
+
+
 #  def require_correct_user
-#   @user = Organization.find(params[:id])
+#   @user = User.find(params[:id])
 #    unless current_user == @user
 #     redirect_to root_url
 #    end
 #  end
+
 
 end

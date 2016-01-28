@@ -15,3 +15,9 @@
     </nav>
   </footer>
 </article>
+
+  <% @organization.each do |organization| %>
+        <tr>
+            <td> <%= organization.name %> </td>
+        </tr>
+    <% end %>

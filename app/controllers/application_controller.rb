@@ -21,6 +21,22 @@ private
   end
   
   helper_method :current_user
+
+
+
+#  def current_member
+#    @current_member ||= User.find(session[:user_id]) if session[:user_id]
+#  end
+  
+#  helper_method :current_member
+
+
+#  def current_member?(user)
+#    current_member == user
+#  end
+  
+#  helper_method :current_member?
+
   
   def current_user?(user)
     current_user == user

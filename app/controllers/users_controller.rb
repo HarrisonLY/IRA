@@ -9,6 +9,7 @@ before_action :require_admin, only: [:destroy, :index, :admin]
 
   def show
     @user = User.find(params[:id])
+    @organization = @current_user.organizations
   end
 
   def edit
@@ -60,9 +61,17 @@ before_action :require_admin, only: [:destroy, :index, :admin]
 private
 
   def user_params
-    params.require(:user).
-      permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :organization_ids)
   end
+
+  def report_params
+    params.require(:report).permit(:title)
+  end
+
+  def organization_params
+    params.require(:organization).permit(:name)
+  end
+
 
   def require_correct_user
    @user = User.find(params[:id])
