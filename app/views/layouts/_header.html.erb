@@ -26,8 +26,12 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li> <a href="/organizations"> Orgs </a> </li>
-        <li> <a href="/reports/new"> <i class="glyphicon glyphicon-plus"> </i> </a> </li>
+        <li> <a href="/organizations"> ORGs </a> </li>
+
+        <li> <%= link_to [:new, @reportable, :report] do %> 
+                <i class="glyphicon glyphicon-plus"> </i>
+              <% end %> </li> 
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> 
           <span class="caret"></span>

@@ -10,7 +10,6 @@ before_action :require_admin, only: [:destroy, :admin]
 
   def show
     @organization = Organization.find(params[:id])
-    @memberships = @organization.memberships
     @members = @organization.users
     @report = @organization.reports
   end

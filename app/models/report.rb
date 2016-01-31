@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-	belongs_to :reportable, polymorphic: true
+	belongs_to :organization
 
 	validates :title, presence: true
 	#validates :slug, presence: true

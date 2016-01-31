@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :reports, as: :reportable, dependent: :destroy
 	has_many :memberships, dependent: :destroy
   	has_many :organizations, through: :memberships
 

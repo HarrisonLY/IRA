@@ -3,10 +3,10 @@ before_action :set_user
 before_action :require_signin
 before_action :require_admin, only: [:admin]
 
-  def index
-    @personal_reports = @current_user.reports
+
+   def index
+    @reports = Report.all
     @organization = @current_user.organizations
-#    @organization_reports = @organization.reports
   end
 
   def show
@@ -14,7 +14,7 @@ before_action :require_admin, only: [:admin]
   end
 
   def new
-    @report = @current_user.reports.new
+    @report = Report.new
   end
 
   def edit
@@ -22,7 +22,7 @@ before_action :require_admin, only: [:admin]
   end
 
   def create
-    @report = @current_user.reports.new(report_params)
+    @report = Report.new(report_params)
     if @report.save
       redirect_to @report,
         notice: "Thanks for your report!"
@@ -32,7 +32,7 @@ before_action :require_admin, only: [:admin]
   end
 
   def destroy
-    @report = @current_user.reports.find(params[:id])
+    @report = Report.find(params[:id])
     @report.destroy
     redirect_to reports_path, notice: "report successfully deleted!"
   end
@@ -50,6 +50,7 @@ before_action :require_admin, only: [:admin]
     @reports = Report.all
   end
 
+  
 private
 
   def set_user
@@ -57,7 +58,7 @@ private
   end
 
   def report_params
-    params.require(:report).permit(:title, :reportable_type, :reportable_id, :created_at, :updated_at)
+    params.require(:report).permit(:title)
   end
 
   def organization_params
@@ -67,6 +68,5 @@ private
   def user_params
     params.require(:user).permit(:name, :organization_ids)
   end
-
 
 end
